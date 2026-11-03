@@ -42,7 +42,7 @@ const translations: Record<Language, Record<string, string>> = {
 
     // About
     about_title: "Sobre Mim",
-    about_p1: "Sou o Thiago Gomes, tenho {age} anos e sou desenvolvedor full-stack. Gosto de transformar problemas de negócio em software que funciona de verdade. Hoje trabalho em uma software house, onde já entreguei 10 projetos para clientes, de sites institucionais a e-commerce, ERP e assistentes com IA.",
+    about_p1: "Sou o Thiago Gomes, tenho {age} anos e sou desenvolvedor full-stack. Gosto de transformar problemas de negócio em software que funciona de verdade. Em uma software house, entreguei 10 projetos para clientes, de sites institucionais a e-commerce, ERP e assistentes com IA.",
     about_p2: "Meu dia a dia é Next.js, React, TypeScript e Node.js com PostgreSQL, integrando pagamentos, WhatsApp e modelos de IA. Também tenho experiência com Java/Spring Boot e com suporte de TI.",
     about_p3: "Estou no Bacharelado em Ciência da Computação (Estácio, conclusão em 2027) e busco uma oportunidade de estágio ou júnior para crescer em um time de tecnologia.",
     skill_advanced: "Avançado",
@@ -109,7 +109,7 @@ const translations: Record<Language, Record<string, string>> = {
 
     // About
     about_title: "About Me",
-    about_p1: "I'm Thiago Gomes, a {age}-year-old full-stack developer. I enjoy turning business problems into software that actually works. I currently work at a software house, where I've delivered 10 client projects, from corporate websites to e-commerce, ERP and AI assistants.",
+    about_p1: "I'm Thiago Gomes, a {age}-year-old full-stack developer. I enjoy turning business problems into software that actually works. At a software house, I delivered 10 client projects, from corporate websites to e-commerce, ERP and AI assistants.",
     about_p2: "My day-to-day stack is Next.js, React, TypeScript and Node.js with PostgreSQL, integrating payments, WhatsApp and AI models. I also have experience with Java/Spring Boot and IT support.",
     about_p3: "I'm pursuing a B.S. in Computer Science (Estácio, graduating in 2027) and looking for an internship or junior role to grow within a tech team.",
     skill_advanced: "Advanced",
