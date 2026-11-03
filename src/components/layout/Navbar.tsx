@@ -50,17 +50,17 @@ export function Navbar() {
         initial={{ y: -50, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.5, ease: "easeOut" }}
-        className={`pointer-events-auto hidden md:flex mt-6 px-8 py-3 rounded-full border bg-[rgba(10,15,25,0.72)] backdrop-blur-xl items-center shadow-[0_12px_40px_rgba(0,0,0,0.35)] transition-all duration-300 gap-7 relative overflow-hidden ${
-          scrolled ? "border-accent/20 bg-[rgba(6,9,16,0.85)] scale-[0.98]" : "border-border/30"
+        className={`pointer-events-auto hidden md:flex mt-6 px-8 py-3 rounded-full border bg-[rgba(14,11,12,0.72)] backdrop-blur-xl items-center shadow-[0_12px_40px_rgba(0,0,0,0.35)] transition-all duration-300 gap-7 relative overflow-hidden ${
+          scrolled ? "border-accent/20 bg-[rgba(9,7,8,0.85)] scale-[0.98]" : "border-border/30"
         }`}
       >
         {/* Logo */}
         <Link
           href="#home"
           data-cursor-text="home"
-          className="font-[family-name:var(--font-jetbrains)] text-sm text-[#4a9eff] tracking-wider cursor-pointer hover:opacity-80 transition-opacity whitespace-nowrap flex-shrink-0"
+          className="font-[family-name:var(--font-jetbrains)] text-sm text-[#FF8A3D] tracking-wider cursor-pointer hover:opacity-80 transition-opacity whitespace-nowrap flex-shrink-0"
         >
-          <span className="text-[#9aabcc]">{"//"}</span> TG<span className="text-[#9aabcc]">.dev</span>
+          <span className="text-[#B5A9A3]">{"//"}</span> TG<span className="text-[#B5A9A3]">.dev</span>
         </Link>
 
         <div className="w-px h-5 bg-border/20" />
@@ -75,8 +75,8 @@ export function Navbar() {
                   <a
                     href={link.href}
                     className={`relative z-10 font-[family-name:var(--font-jetbrains)] text-xs font-semibold tracking-widest uppercase py-2 px-3.5 rounded-full transition-colors duration-300 block ${
-                      isActive ? "text-white" : "text-[#9aabcc] hover:text-[#e8edf5]"
-                    } focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#4a9eff]`}
+                      isActive ? "text-white" : "text-[#B5A9A3] hover:text-[#F2EEEA]"
+                    } focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#FF8A3D]`}
                   >
                     {link.label}
                     {isActive && (
@@ -101,7 +101,7 @@ export function Navbar() {
             <button
               onClick={toggleLang}
               data-cursor-text="lang"
-              className="cursor-pointer text-xs font-[family-name:var(--font-jetbrains)] font-bold text-[#9aabcc] hover:text-accent w-8 h-8 rounded-full hover:bg-bg-3/50 flex items-center justify-center transition-colors"
+              className="cursor-pointer text-xs font-[family-name:var(--font-jetbrains)] font-bold text-[#B5A9A3] hover:text-accent w-8 h-8 rounded-full hover:bg-bg-3/50 flex items-center justify-center transition-colors"
               aria-label="Mudar idioma"
             >
               {lang === "pt" ? "EN" : "PT"}
@@ -109,7 +109,7 @@ export function Navbar() {
             <button
               onClick={toggleTheme}
               data-cursor-text="theme"
-              className="cursor-pointer text-[#9aabcc] hover:text-accent w-8 h-8 rounded-full hover:bg-bg-3/50 flex items-center justify-center transition-colors"
+              className="cursor-pointer text-[#B5A9A3] hover:text-accent w-8 h-8 rounded-full hover:bg-bg-3/50 flex items-center justify-center transition-colors"
               aria-label="Mudar tema"
             >
               {theme === "dark" ? <Sun size={14} /> : <Moon size={14} />}
@@ -123,7 +123,7 @@ export function Navbar() {
         <a
           href="#contact"
           data-cursor-text="chat"
-          className="cursor-pointer bg-accent hover:bg-accent/90 text-white font-semibold text-xs font-[family-name:var(--font-jetbrains)] tracking-wider uppercase px-5 py-2.5 rounded-full flex items-center gap-2 transition-all duration-200 hover:shadow-[0_4px_16px_rgba(74,158,255,0.35)]"
+          className="cursor-pointer bg-accent hover:bg-accent/90 text-on-accent font-semibold text-xs font-[family-name:var(--font-jetbrains)] tracking-wider uppercase px-5 py-2.5 rounded-full flex items-center gap-2 transition-all duration-200 hover:shadow-[0_4px_16px_rgba(255,138,61,0.35)]"
         >
           <MessageSquare size={13} />
           <span>{lang === "pt" ? "Vamos conversar" : "Let's Talk"}</span>
@@ -132,7 +132,7 @@ export function Navbar() {
         {/* Scroll progress bar */}
         <div className="absolute bottom-0 left-0 right-0 h-[2px] bg-border/5 overflow-hidden pointer-events-none rounded-b-full">
           <div
-            className="h-full bg-gradient-to-r from-[#4a9eff] to-[#00d4aa] transition-all duration-75 shadow-[0_0_8px_rgba(74,158,255,0.4)]"
+            className="h-full bg-gradient-to-r from-[#FF8A3D] to-[#E8456B] transition-all duration-75 shadow-[0_0_8px_rgba(255,138,61,0.4)]"
             style={{ width: `${scrollProgress}%` }}
           />
         </div>
@@ -140,7 +140,7 @@ export function Navbar() {
 
       {/* ── MOBILE NAV BAR ───────────────────────────────────────── */}
       <div
-        className={`pointer-events-auto flex md:hidden mt-4 mx-4 px-4 py-3 rounded-2xl border bg-[rgba(10,15,25,0.85)] backdrop-blur-xl items-center justify-between shadow-[0_8px_32px_rgba(0,0,0,0.4)] transition-all duration-300 relative overflow-hidden ${
+        className={`pointer-events-auto flex md:hidden mt-4 mx-4 px-4 py-3 rounded-2xl border bg-[rgba(14,11,12,0.85)] backdrop-blur-xl items-center justify-between shadow-[0_8px_32px_rgba(0,0,0,0.4)] transition-all duration-300 relative overflow-hidden ${
           scrolled ? "border-accent/20" : "border-border/30"
         }`}
         style={{ width: "calc(100% - 2rem)" }}
@@ -149,9 +149,9 @@ export function Navbar() {
         <Link
           href="#home"
           onClick={() => setMobileOpen(false)}
-          className="font-[family-name:var(--font-jetbrains)] text-sm text-[#4a9eff] tracking-wider hover:opacity-80 transition-opacity whitespace-nowrap"
+          className="font-[family-name:var(--font-jetbrains)] text-sm text-[#FF8A3D] tracking-wider hover:opacity-80 transition-opacity whitespace-nowrap"
         >
-          <span className="text-[#9aabcc]">{"//"}</span> TG<span className="text-[#9aabcc]">.dev</span>
+          <span className="text-[#B5A9A3]">{"//"}</span> TG<span className="text-[#B5A9A3]">.dev</span>
         </Link>
 
         {/* Right side: controls + hamburger */}
@@ -160,14 +160,14 @@ export function Navbar() {
             <>
               <button
                 onClick={toggleLang}
-                className="font-[family-name:var(--font-jetbrains)] text-[11px] font-bold text-[#9aabcc] hover:text-accent w-8 h-8 rounded-full hover:bg-white/5 flex items-center justify-center transition-colors"
+                className="font-[family-name:var(--font-jetbrains)] text-[11px] font-bold text-[#B5A9A3] hover:text-accent w-8 h-8 rounded-full hover:bg-white/5 flex items-center justify-center transition-colors"
                 aria-label="Mudar idioma"
               >
                 {lang === "pt" ? "EN" : "PT"}
               </button>
               <button
                 onClick={toggleTheme}
-                className="text-[#9aabcc] hover:text-accent w-8 h-8 rounded-full hover:bg-white/5 flex items-center justify-center transition-colors"
+                className="text-[#B5A9A3] hover:text-accent w-8 h-8 rounded-full hover:bg-white/5 flex items-center justify-center transition-colors"
                 aria-label="Mudar tema"
               >
                 {theme === "dark" ? <Sun size={15} /> : <Moon size={15} />}
@@ -176,7 +176,7 @@ export function Navbar() {
           )}
 
           <button
-            className="text-[#9aabcc] hover:text-[#4a9eff] transition-colors w-9 h-9 rounded-full hover:bg-white/5 flex items-center justify-center focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#4a9eff]"
+            className="text-[#B5A9A3] hover:text-[#FF8A3D] transition-colors w-9 h-9 rounded-full hover:bg-white/5 flex items-center justify-center focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#FF8A3D]"
             onClick={() => setMobileOpen(!mobileOpen)}
             aria-label={mobileOpen ? "Fechar menu" : "Abrir menu"}
           >
@@ -187,7 +187,7 @@ export function Navbar() {
         {/* Mobile scroll progress */}
         <div className="absolute bottom-0 left-0 right-0 h-[2px] bg-border/5 overflow-hidden pointer-events-none rounded-b-2xl">
           <div
-            className="h-full bg-gradient-to-r from-[#4a9eff] to-[#00d4aa] transition-all duration-75"
+            className="h-full bg-gradient-to-r from-[#FF8A3D] to-[#E8456B] transition-all duration-75"
             style={{ width: `${scrollProgress}%` }}
           />
         </div>
@@ -201,7 +201,7 @@ export function Navbar() {
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: -10, scale: 0.97 }}
             transition={{ duration: 0.2, ease: "easeOut" }}
-            className="md:hidden pointer-events-auto w-[calc(100%-2rem)] mx-4 mt-2 bg-[rgba(8,12,22,0.96)] backdrop-blur-2xl border border-border/40 px-5 py-5 rounded-2xl shadow-[0_16px_48px_rgba(0,0,0,0.6)] flex flex-col gap-5"
+            className="md:hidden pointer-events-auto w-[calc(100%-2rem)] mx-4 mt-2 bg-[rgba(12,9,10,0.96)] backdrop-blur-2xl border border-border/40 px-5 py-5 rounded-2xl shadow-[0_16px_48px_rgba(0,0,0,0.6)] flex flex-col gap-5"
           >
             <ul className="flex flex-col gap-1">
               {navLinks.map((link) => {
@@ -214,7 +214,7 @@ export function Navbar() {
                       className={`font-[family-name:var(--font-jetbrains)] text-xs font-semibold tracking-widest uppercase flex items-center py-2.5 px-4 rounded-xl transition-all ${
                         isActive
                           ? "text-accent bg-accent/10 border-l-2 border-accent"
-                          : "text-[#9aabcc] hover:text-white hover:bg-white/5"
+                          : "text-[#B5A9A3] hover:text-white hover:bg-white/5"
                       }`}
                     >
                       {link.label}
@@ -229,7 +229,7 @@ export function Navbar() {
             <a
               href="#contact"
               onClick={() => setMobileOpen(false)}
-              className="bg-accent hover:bg-accent/90 text-white font-semibold text-xs font-[family-name:var(--font-jetbrains)] tracking-wider uppercase py-3 rounded-xl flex items-center justify-center gap-2 transition-all"
+              className="bg-accent hover:bg-accent/90 text-on-accent font-semibold text-xs font-[family-name:var(--font-jetbrains)] tracking-wider uppercase py-3 rounded-xl flex items-center justify-center gap-2 transition-all"
             >
               <MessageSquare size={13} />
               <span>{lang === "pt" ? "Vamos conversar" : "Let's Talk"}</span>

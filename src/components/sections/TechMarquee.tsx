@@ -31,7 +31,7 @@ export function TechMarquee() {
             {skillsList.map((skill, idx) => (
               <div key={`marquee-1-${idx}`} className="flex items-center gap-3">
                 <span className="w-1.5 h-1.5 rounded-full bg-accent-2 shadow-[0_0_8px_var(--color-accent-2)]" />
-                <span className="font-[family-name:var(--font-jetbrains)] text-xs text-[#9aabcc] tracking-widest uppercase font-semibold">
+                <span className="font-[family-name:var(--font-jetbrains)] text-xs text-[#B5A9A3] tracking-widest uppercase font-semibold">
                   {skill}
                 </span>
               </div>
@@ -43,7 +43,7 @@ export function TechMarquee() {
             {skillsList.map((skill, idx) => (
               <div key={`marquee-2-${idx}`} className="flex items-center gap-3">
                 <span className="w-1.5 h-1.5 rounded-full bg-accent-2 shadow-[0_0_8px_var(--color-accent-2)]" />
-                <span className="font-[family-name:var(--font-jetbrains)] text-xs text-[#9aabcc] tracking-widest uppercase font-semibold">
+                <span className="font-[family-name:var(--font-jetbrains)] text-xs text-[#B5A9A3] tracking-widest uppercase font-semibold">
                   {skill}
                 </span>
               </div>

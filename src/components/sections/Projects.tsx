@@ -52,7 +52,7 @@ export function Projects() {
           <span className="font-[family-name:var(--font-jetbrains)] text-xs text-accent tracking-[0.2em] uppercase">
             {"// 04"}
           </span>
-          <h2 className="text-3xl md:text-4xl font-bold font-[family-name:var(--font-jetbrains)] text-text">
+          <h2 className="text-4xl md:text-5xl font-semibold font-serif text-text">
             {t("proj_title")}
           </h2>
           <div className="flex-1 h-px bg-gradient-to-r from-accent/30 to-transparent" />
@@ -68,13 +68,13 @@ export function Projects() {
                   key={tab.type}
                   onClick={() => setFilter(tab.type)}
                   className={`cursor-pointer relative px-4 py-2 text-xs font-[family-name:var(--font-jetbrains)] uppercase tracking-wider rounded-lg transition-colors duration-300 font-semibold ${
-                    selected ? "text-white" : "text-text-2 hover:text-text"
+                    selected ? "text-on-accent" : "text-text-2 hover:text-text"
                   }`}
                 >
                   {selected && (
                     <motion.span
                       layoutId="activeProjectTab"
-                      className="absolute inset-0 bg-accent rounded-lg -z-10 shadow-[0_4px_16px_rgba(74,158,255,0.25)]"
+                      className="absolute inset-0 bg-accent rounded-lg -z-10 shadow-[0_4px_16px_rgba(255,138,61,0.25)]"
                       transition={{ type: "spring", stiffness: 300, damping: 26 }}
                     />
                   )}
@@ -162,7 +162,7 @@ export function Projects() {
                           href={project.link}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="cursor-pointer w-8 h-8 rounded-lg bg-accent/10 border border-accent/20 flex items-center justify-center text-accent hover:bg-accent hover:text-white hover:border-accent transition-all duration-200 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
+                          className="cursor-pointer w-8 h-8 rounded-lg bg-accent/10 border border-accent/20 flex items-center justify-center text-accent hover:bg-accent hover:text-on-accent hover:border-accent transition-all duration-200 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
                           aria-label={`${lang === "pt" ? "Acessar" : "Access"} ${project.title[lang]}`}
                         >
                           <ExternalLink size={13} />

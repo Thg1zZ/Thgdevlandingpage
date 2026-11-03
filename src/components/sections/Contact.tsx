@@ -111,7 +111,7 @@ export function Contact() {
           <span className="font-[family-name:var(--font-jetbrains)] text-xs text-accent tracking-[0.2em] uppercase">
             {"// 05"}
           </span>
-          <h2 className="text-3xl md:text-4xl font-bold font-[family-name:var(--font-jetbrains)] text-text">
+          <h2 className="text-4xl md:text-5xl font-semibold font-serif text-text">
             {t("contact_title")}
           </h2>
           <div className="flex-1 h-px bg-gradient-to-r from-accent/30 to-transparent" />
@@ -154,7 +154,7 @@ export function Contact() {
                   target="_blank"
                   rel="noopener noreferrer"
                   data-cursor-text="whatsapp"
-                  className="cursor-pointer inline-flex items-center justify-center gap-2 bg-accent-2 hover:bg-accent-2/90 text-white font-semibold text-xs font-[family-name:var(--font-jetbrains)] tracking-wider uppercase px-6 py-3.5 rounded-full w-fit transition-all duration-200 hover:-translate-y-0.5 shadow-[0_4px_16px_rgba(0,212,170,0.25)] hover:shadow-[0_8px_24px_rgba(0,212,170,0.4)]"
+                  className="cursor-pointer inline-flex items-center justify-center gap-2 bg-accent-2 hover:bg-accent-2/90 text-on-accent font-semibold text-xs font-[family-name:var(--font-jetbrains)] tracking-wider uppercase px-6 py-3.5 rounded-full w-fit transition-all duration-200 hover:-translate-y-0.5 shadow-[0_4px_16px_rgba(255,184,107,0.25)] hover:shadow-[0_8px_24px_rgba(255,184,107,0.4)]"
                 >
                   <WhatsAppIcon className="w-4 h-4" />
                   <span>{lang === "pt" ? "WhatsApp Direto" : "Direct WhatsApp"}</span>
@@ -401,7 +401,7 @@ export function Contact() {
                           disabled={status === "loading" || !consent}
                           id="contact-submit-btn"
                           data-cursor-text={consent ? "send" : ""}
-                          className="cursor-pointer w-full flex items-center justify-center gap-2 bg-accent hover:bg-accent/90 disabled:bg-accent/30 disabled:cursor-not-allowed text-white font-semibold text-xs font-[family-name:var(--font-jetbrains)] tracking-wider py-3 rounded-lg transition-all duration-200 hover:-translate-y-0.5 hover:shadow-[0_6px_20px_rgba(74,158,255,0.3)]"
+                          className="cursor-pointer w-full flex items-center justify-center gap-2 bg-accent hover:bg-accent/90 disabled:bg-accent/30 disabled:cursor-not-allowed text-on-accent font-semibold text-xs font-[family-name:var(--font-jetbrains)] tracking-wider py-3 rounded-lg transition-all duration-200 hover:-translate-y-0.5 hover:shadow-[0_6px_20px_rgba(255,138,61,0.3)]"
                         >
                           {status === "loading" ? (
                             <><Loader2 size={14} className="animate-spin" /> {t("form_btn_sending")}</>

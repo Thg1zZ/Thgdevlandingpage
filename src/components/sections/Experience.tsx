@@ -28,7 +28,7 @@ export function Experience() {
           <span className="font-[family-name:var(--font-jetbrains)] text-xs text-accent tracking-[0.2em] uppercase">
             {"// 03"}
           </span>
-          <h2 className="text-3xl md:text-4xl font-bold font-[family-name:var(--font-jetbrains)] text-text">
+          <h2 className="text-4xl md:text-5xl font-semibold font-serif text-text">
             {t("exp_title")}
           </h2>
           <div className="flex-1 h-px bg-gradient-to-r from-accent/30 to-transparent" />
@@ -51,7 +51,7 @@ export function Experience() {
                 <div className="flex gap-6 md:gap-8 group">
                   {/* Dot */}
                   <div className="flex-shrink-0 relative mt-5 ml-1 md:ml-3">
-                    <div className="w-3 h-3 rounded-full bg-accent-2 shadow-[0_0_8px_rgba(0,212,170,0.4)] flex-shrink-0 group-hover:scale-125 transition-transform duration-300" />
+                    <div className="w-3 h-3 rounded-full bg-accent-2 shadow-[0_0_8px_rgba(255,184,107,0.4)] flex-shrink-0 group-hover:scale-125 transition-transform duration-300" />
                   </div>
 
                   {/* Content card */}

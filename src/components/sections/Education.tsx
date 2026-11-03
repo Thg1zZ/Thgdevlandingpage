@@ -8,8 +8,8 @@ import { GraduationCap, CheckCircle, Clock } from "lucide-react";
 import { useLanguageTheme } from "@/context/LanguageThemeContext";
 
 const statusConfig = {
-  current: { icon: <Clock size={14} />, color: "text-[#ff6b35]", dot: "bg-[#ff6b35]", glow: "shadow-[0_0_8px_rgba(255,107,53,0.5)]" },
-  progress: { icon: <Clock size={14} />, color: "text-[#00d4aa]", dot: "bg-[#00d4aa]", glow: "shadow-[0_0_8px_rgba(0,212,170,0.5)]" },
+  current: { icon: <Clock size={14} />, color: "text-accent", dot: "bg-accent", glow: "shadow-[0_0_8px_var(--color-accent)]" },
+  progress: { icon: <Clock size={14} />, color: "text-accent-2", dot: "bg-accent-2", glow: "shadow-[0_0_8px_var(--color-accent-2)]" },
   done: { icon: <CheckCircle size={14} />, color: "text-text-2", dot: "bg-text-3", glow: "" },
 };
 
@@ -41,7 +41,7 @@ export function Education() {
           <span className="font-[family-name:var(--font-jetbrains)] text-xs text-accent tracking-[0.2em] uppercase">
             {"// 02"}
           </span>
-          <h2 className="text-3xl md:text-4xl font-bold font-[family-name:var(--font-jetbrains)] text-text">
+          <h2 className="text-4xl md:text-5xl font-semibold font-serif text-text">
             {t("edu_title")}
           </h2>
           <div className="flex-1 h-px bg-gradient-to-r from-accent/30 to-transparent" />

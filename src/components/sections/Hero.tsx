@@ -72,14 +72,16 @@ export function Hero() {
         </video>
 
         {/* Overlays for readability */}
-        <div className="absolute inset-0 bg-gradient-to-t from-[#0a0c10] via-[rgba(10,12,16,0.65)] to-[rgba(10,12,16,0.2)]" />
-        <div className="absolute inset-0 bg-gradient-to-r from-[rgba(10,12,16,0.85)] via-transparent to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#0B0A0C] via-[rgba(11,10,12,0.65)] to-[rgba(11,10,12,0.2)]" />
+        <div className="absolute inset-0 bg-gradient-to-r from-[rgba(11,10,12,0.85)] via-transparent to-transparent" />
+        {/* Warm tint so the cool-toned video matches the sunset palette */}
+        <div className="absolute inset-0 bg-[#FF7A1A]/10 mix-blend-soft-light" />
 
         {/* Luminous cursor glow tracker */}
         <div
           className="absolute inset-0 z-10 opacity-30 pointer-events-none transition-all duration-300"
           style={{
-            background: `radial-gradient(circle 350px at ${mousePos.x} ${mousePos.y}, rgba(74, 158, 255, 0.2) 0%, rgba(0, 212, 170, 0.05) 60%, transparent 100%)`,
+            background: `radial-gradient(circle 350px at ${mousePos.x} ${mousePos.y}, rgba(255,138,61, 0.2) 0%, rgba(232,69,107,0.06) 60%, transparent 100%)`,
           }}
         />
 
@@ -106,13 +108,13 @@ export function Hero() {
               transition={{ delay: 0.2, duration: 0.6 }}
               className="inline-flex items-center gap-2 mb-4"
             >
-              <span className="w-2 h-2 rounded-full bg-[#00d4aa] animate-pulse shadow-[0_0_8px_rgba(0,212,170,0.6)]" />
-              <span className="font-[family-name:var(--font-jetbrains)] text-xs text-[#00d4aa] tracking-widest uppercase">
+              <span className="w-2 h-2 rounded-full bg-[#FFB86B] animate-pulse shadow-[0_0_8px_rgba(255,184,107,0.6)]" />
+              <span className="font-[family-name:var(--font-jetbrains)] text-xs text-[#FFB86B] tracking-widest uppercase">
                 {t("hero_tag")}
               </span>
             </motion.div>
 
-            <h1 className="text-5xl md:text-6xl xl:text-7xl font-bold text-[#e8edf5] leading-none tracking-tight mb-3 font-[family-name:var(--font-jetbrains)] flex flex-wrap">
+            <h1 className="text-6xl md:text-7xl xl:text-8xl font-semibold text-[#F2EEEA] leading-none mb-3 font-serif flex flex-wrap">
               <span className="inline-block mr-3 whitespace-nowrap">
                 {"Thiago".split("").map((char, index) => (
                   <motion.span
@@ -130,7 +132,7 @@ export function Hero() {
                   </motion.span>
                 ))}
               </span>
-              <span className="gradient-text inline-block whitespace-nowrap">
+              <span className="gradient-text italic inline-block whitespace-nowrap pr-2">
                 {"Gomes".split("").map((char, index) => (
                   <motion.span
                     key={index}
@@ -153,7 +155,7 @@ export function Hero() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.9, duration: 0.6 }}
-              className="font-[family-name:var(--font-jetbrains)] text-lg md:text-xl text-[#9aabcc] mb-8 tracking-wide"
+              className="font-[family-name:var(--font-jetbrains)] text-lg md:text-xl text-[#B5A9A3] mb-8 tracking-wide"
             >
               {personalInfo.role[lang]}
             </motion.p>
@@ -172,7 +174,7 @@ export function Hero() {
                 animate={btn1Pos}
                 transition={{ type: "spring", stiffness: 150, damping: 15, mass: 0.1 }}
                 data-cursor-text="view"
-                className="cursor-pointer inline-flex items-center gap-2 bg-[#4a9eff] hover:bg-[#3a8ee8] text-white font-semibold text-sm px-6 py-3 rounded-lg transition-all duration-200 hover:-translate-y-0.5 hover:shadow-[0_8px_24px_rgba(74,158,255,0.35)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#4a9eff]"
+                className="cursor-pointer inline-flex items-center gap-2 bg-[#FF8A3D] hover:bg-[#F27321] text-[#1A0E05] font-semibold text-sm px-6 py-3 rounded-lg transition-all duration-200 hover:-translate-y-0.5 hover:shadow-[0_8px_24px_rgba(255,138,61,0.35)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#FF8A3D]"
               >
                 {t("hero_btn1")} <ArrowRight size={16} />
               </motion.a>
@@ -184,7 +186,7 @@ export function Hero() {
                 animate={btn2Pos}
                 transition={{ type: "spring", stiffness: 150, damping: 15, mass: 0.1 }}
                 data-cursor-text="talk"
-                className="cursor-pointer inline-flex items-center gap-2 glass text-[#e8edf5] hover:border-[#4a9eff] hover:text-[#4a9eff] font-semibold text-sm px-6 py-3 rounded-lg transition-all duration-200 hover:-translate-y-0.5 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#4a9eff]"
+                className="cursor-pointer inline-flex items-center gap-2 glass text-[#F2EEEA] hover:border-[#FF8A3D] hover:text-[#FF8A3D] font-semibold text-sm px-6 py-3 rounded-lg transition-all duration-200 hover:-translate-y-0.5 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#FF8A3D]"
               >
                 {t("hero_btn2")}
               </motion.a>
@@ -198,7 +200,7 @@ export function Hero() {
             transition={{ delay: 0.8, duration: 0.7, ease: [0.25, 1, 0.5, 1] }}
             className="space-y-6"
           >
-            <p className="text-[#9aabcc] text-sm md:text-base leading-relaxed font-light max-w-md">
+            <p className="text-[#B5A9A3] text-sm md:text-base leading-relaxed font-light max-w-md">
               {t("hero_desc")}
             </p>
 
@@ -210,12 +212,12 @@ export function Hero() {
                 return (
                   <div
                     key={stat.label[lang]}
-                    className="glass-premium rounded-xl p-3 text-center hover:border-[rgba(74,158,255,0.3)] transition-all duration-300 hover:bg-[rgba(74,158,255,0.05)]"
+                    className="glass-premium rounded-xl p-3 text-center hover:border-[rgba(255,138,61,0.3)] transition-all duration-300 hover:bg-[rgba(255,138,61,0.05)]"
                   >
-                    <div className="font-[family-name:var(--font-jetbrains)] text-2xl font-bold text-[#4a9eff] leading-none">
+                    <div className="font-[family-name:var(--font-jetbrains)] text-2xl font-bold text-[#FF8A3D] leading-none">
                       <CountUp target={numValue} suffix={suffix} />
                     </div>
-                    <div className="text-[10px] text-[#5a6e8c] mt-1 tracking-wide">{stat.label[lang]}</div>
+                    <div className="text-[10px] text-[#7A6E69] mt-1 tracking-wide">{stat.label[lang]}</div>
                   </div>
                 );
               })}
@@ -228,7 +230,7 @@ export function Hero() {
                 target="_blank"
                 rel="noopener noreferrer"
                 data-cursor-text="visit"
-                className="cursor-pointer flex items-center gap-2 text-xs font-[family-name:var(--font-jetbrains)] text-[#9aabcc] hover:text-[#4a9eff] transition-colors duration-200 group focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#4a9eff] rounded"
+                className="cursor-pointer flex items-center gap-2 text-xs font-[family-name:var(--font-jetbrains)] text-[#B5A9A3] hover:text-[#FF8A3D] transition-colors duration-200 group focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#FF8A3D] rounded"
                 aria-label="GitHub"
               >
                 <GithubIcon size={16} className="group-hover:scale-110 transition-transform" />
@@ -239,7 +241,7 @@ export function Hero() {
                 target="_blank"
                 rel="noopener noreferrer"
                 data-cursor-text="visit"
-                className="cursor-pointer flex items-center gap-2 text-xs font-[family-name:var(--font-jetbrains)] text-[#9aabcc] hover:text-[#4a9eff] transition-colors duration-200 group focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#4a9eff] rounded"
+                className="cursor-pointer flex items-center gap-2 text-xs font-[family-name:var(--font-jetbrains)] text-[#B5A9A3] hover:text-[#FF8A3D] transition-colors duration-200 group focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#FF8A3D] rounded"
                 aria-label="LinkedIn"
               >
                 <LinkedinIcon size={16} className="group-hover:scale-110 transition-transform" />
@@ -250,7 +252,7 @@ export function Hero() {
                 target="_blank"
                 rel="noopener noreferrer"
                 data-cursor-text="open"
-                className="cursor-pointer flex items-center gap-2 text-xs font-[family-name:var(--font-jetbrains)] text-[#9aabcc] hover:text-[#00d4aa] transition-colors duration-200 group focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#4a9eff] rounded"
+                className="cursor-pointer flex items-center gap-2 text-xs font-[family-name:var(--font-jetbrains)] text-[#B5A9A3] hover:text-[#FFB86B] transition-colors duration-200 group focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#FF8A3D] rounded"
                 aria-label="Download CV"
               >
                 <FileDown size={16} className="group-hover:scale-110 transition-transform" />
@@ -270,14 +272,14 @@ export function Hero() {
         animate={{ opacity: 1 }}
         transition={{ delay: 1.6 }}
       >
-        <div className="w-px h-12 bg-gradient-to-b from-transparent to-[#4a9eff] opacity-60" />
+        <div className="w-px h-12 bg-gradient-to-b from-transparent to-[#FF8A3D] opacity-60" />
         <motion.div
           animate={{ y: [0, 6, 0] }}
           transition={{ repeat: Infinity, duration: 1.5, ease: "easeInOut" }}
         >
-          <ChevronDown size={18} className="text-[#4a9eff] opacity-70" />
+          <ChevronDown size={18} className="text-[#FF8A3D] opacity-70" />
         </motion.div>
-        <span className="font-[family-name:var(--font-jetbrains)] text-[9px] text-[#5a6e8c] tracking-[0.2em] uppercase">
+        <span className="font-[family-name:var(--font-jetbrains)] text-[9px] text-[#7A6E69] tracking-[0.2em] uppercase">
           {t("scroll_hint")}
         </span>
       </motion.div>
