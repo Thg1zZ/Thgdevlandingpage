@@ -78,6 +78,14 @@ export function Experience() {
                       {exp.description[lang]}
                     </p>
 
+                    {exp.highlights && (
+                      <ul className="list-disc pl-4 space-y-1.5 text-text-2 text-xs leading-relaxed font-light mb-4 marker:text-accent-2">
+                        {exp.highlights.map((item, j) => (
+                          <li key={j}>{item[lang]}</li>
+                        ))}
+                      </ul>
+                    )}
+
                     {exp.link && (
                       <div className="pt-4 border-t border-border/20 flex justify-end">
                         <a

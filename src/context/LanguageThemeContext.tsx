@@ -30,7 +30,7 @@ const translations: Record<Language, Record<string, string>> = {
     // Hero
     hero_tag: "Disponível para projetos",
     hero_role: "Full-Stack Engineer",
-    hero_desc: "Engenheiro de software com sólida experiência em desenvolvimento de sistemas, análise de dados e implementação de soluções com Inteligência Artificial. Transformando complexidade em código limpo e resultados reais.",
+    hero_desc: "Desenvolvedor Full-Stack e estudante de Ciência da Computação, com experiência em software house criando sites, e-commerce, automações e integrações com APIs usando Next.js, React, TypeScript, Node.js e PostgreSQL.",
     hero_btn1: "Ver Projetos",
     hero_btn2: "Entrar em Contato",
 
@@ -42,9 +42,9 @@ const translations: Record<Language, Record<string, string>> = {
 
     // About
     about_title: "Sobre Mim",
-    about_p1: "Sou um Engenheiro de Software Full-Stack com forte base em linguagens de baixo nível (C/C++) e plataformas de alta produtividade (Java, Spring Boot). Apaixonado por arquiteturas seguras e código que escala.",
-    about_p2: "Além do desenvolvimento de sistemas, atuo na área de Ciência de Dados e Inteligência Artificial, integrando LLMs em soluções práticas e construindo dashboards analíticos com Power BI e SQL.",
-    about_p3: "Atualmente cursando Bacharelado em Ciência da Computação na Universidade Estácio de Sá, com foco em elevar continuamente minha capacidade técnica e adaptabilidade.",
+    about_p1: "Sou Desenvolvedor Full-Stack com experiência prática em software house, onde desenvolvi 10 projetos para clientes — sites institucionais, e-commerce, ERP, bot de WhatsApp e assistente com IA — usando Next.js, React, TypeScript, Node.js e PostgreSQL.",
+    about_p2: "Trabalho com integrações de APIs e webhooks (pagamentos com cartão e PIX, WhatsApp Cloud API, Correios), IA com LLMs e RAG, e tenho base sólida em Java/Spring Boot e C/C++. Também atuo em suporte de sistemas, redes e troubleshooting.",
+    about_p3: "Atualmente cursando Bacharelado em Ciência da Computação na Universidade Estácio de Sá (previsão: dez/2027), em busca de oportunidades de estágio ou Júnior em Desenvolvimento de Software e Suporte de TI.",
     skill_advanced: "Avançado",
     skill_intermediate: "Intermediário",
 
@@ -97,7 +97,7 @@ const translations: Record<Language, Record<string, string>> = {
     // Hero
     hero_tag: "Available for projects",
     hero_role: "Full-Stack Engineer",
-    hero_desc: "Software engineer with solid experience in systems development, data analysis, and AI-powered solution implementation. Turning complexity into clean code and real results.",
+    hero_desc: "Full-Stack Developer and Computer Science student with software house experience building websites, e-commerce, automations and API integrations using Next.js, React, TypeScript, Node.js and PostgreSQL.",
     hero_btn1: "View Projects",
     hero_btn2: "Get in Touch",
 
@@ -109,9 +109,9 @@ const translations: Record<Language, Record<string, string>> = {
 
     // About
     about_title: "About Me",
-    about_p1: "I'm a Full-Stack Software Engineer with a solid foundation in low-level languages (C/C++) and high-productivity platforms (Java, Spring Boot). Passionate about secure architectures and code that scales.",
-    about_p2: "Besides systems development, I work in Data Science and Artificial Intelligence, integrating LLMs into practical solutions and building analytical dashboards with Power BI and SQL.",
-    about_p3: "Currently pursuing a B.S. in Computer Science at Universidade Estácio de Sá, focusing on continuously raising my technical capacity and adaptability.",
+    about_p1: "I'm a Full-Stack Developer with hands-on software house experience, where I built 10 client projects — corporate websites, e-commerce, ERP, a WhatsApp bot and an AI assistant — using Next.js, React, TypeScript, Node.js and PostgreSQL.",
+    about_p2: "I work with API and webhook integrations (card and PIX payments, WhatsApp Cloud API, Correios), AI with LLMs and RAG, and have a solid foundation in Java/Spring Boot and C/C++. I also handle systems support, networking and troubleshooting.",
+    about_p3: "Currently pursuing a B.S. in Computer Science at Universidade Estácio de Sá (expected Dec 2027), seeking internship or junior opportunities in Software Development and IT Support.",
     skill_advanced: "Advanced",
     skill_intermediate: "Intermediate",
 

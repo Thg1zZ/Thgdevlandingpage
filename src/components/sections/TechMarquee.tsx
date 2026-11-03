@@ -1,16 +1,11 @@
 "use client";
 
 import { useLanguageTheme } from "@/context/LanguageThemeContext";
+import { techStack } from "@/lib/data";
 
-const skillsList = [
-  "C", "C++", "Java", "Python", "Bash",
-  "HTML5", "CSS3", "JavaScript", "TypeScript",
-  "Tailwind CSS", "Next.js", "React",
-  "Spring Boot", "REST APIs", "Node.js",
-  "SQL", "Oracle DB", "PostgreSQL",
-  "Git", "Docker",
-  "Google Gemini", "LLM APIs", "AI Agents"
-];
+const skillsList = techStack.flatMap((group) => group.items);
+// Keeps scroll speed constant regardless of how many items the stack has
+const marqueeStyle = { animationDuration: `${skillsList.length * 1.5}s` };
 
 export function TechMarquee() {
   const { lang } = useLanguageTheme();
@@ -32,7 +27,7 @@ export function TechMarquee() {
 
         <div className="flex whitespace-nowrap min-w-full items-center">
           {/* First loop of items */}
-          <div className="animate-marquee flex items-center gap-12 pr-12 shrink-0">
+          <div className="animate-marquee flex items-center gap-12 pr-12 shrink-0" style={marqueeStyle}>
             {skillsList.map((skill, idx) => (
               <div key={`marquee-1-${idx}`} className="flex items-center gap-3">
                 <span className="w-1.5 h-1.5 rounded-full bg-accent-2 shadow-[0_0_8px_var(--color-accent-2)]" />
@@ -44,7 +39,7 @@ export function TechMarquee() {
           </div>
 
           {/* Second loop of items (for infinite loop effect) */}
-          <div className="animate-marquee flex items-center gap-12 pr-12 shrink-0" aria-hidden="true">
+          <div className="animate-marquee flex items-center gap-12 pr-12 shrink-0" style={marqueeStyle} aria-hidden="true">
             {skillsList.map((skill, idx) => (
               <div key={`marquee-2-${idx}`} className="flex items-center gap-3">
                 <span className="w-1.5 h-1.5 rounded-full bg-accent-2 shadow-[0_0_8px_var(--color-accent-2)]" />

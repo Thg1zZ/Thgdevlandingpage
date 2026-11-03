@@ -3,30 +3,36 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { FadeIn } from "@/components/ui/Animations";
-import { skills } from "@/lib/data";
+import { skills, techStack, softSkills, spokenLanguages } from "@/lib/data";
 import { useLanguageTheme } from "@/context/LanguageThemeContext";
 import { Briefcase, MapPin, Award, CheckCircle } from "lucide-react";
 
-const techStack = [
-  { group: "Sistemas", groupEn: "Systems", items: ["C", "C++", "Java", "Bash", "Python"] },
-  { group: "Web", groupEn: "Web", items: ["HTML5", "CSS3", "JavaScript", "Tailwind", "Next.js", "React"] },
-  { group: "Backend", groupEn: "Backend", items: ["Spring Boot", "JDBC", "JWT", "REST APIs", "Node.js"] },
-  { group: "Data", groupEn: "Data", items: ["Power BI", "Excel", "SQL", "Oracle DB", "PostgreSQL"] },
-  { group: "Infra / DevOps", groupEn: "Infra / DevOps", items: ["Git", "GitHub", "Docker", "WSL2"] },
-  { group: "IA & Cloud", groupEn: "AI & Cloud", items: ["Google Gemini", "LLM APIs", "Cloud Native", "Agentes IA"] },
-];
+function LevelRow({ name, level, strong }: { name: string; level: string; strong: boolean }) {
+  return (
+    <div className="flex items-center justify-between gap-3 text-xs pb-3 border-b border-border/20 last:border-0 last:pb-0">
+      <span className="font-[family-name:var(--font-jetbrains)] text-text font-medium">{name}</span>
+      <span
+        className={`flex-shrink-0 font-[family-name:var(--font-jetbrains)] text-[10px] uppercase tracking-wider px-2 py-0.5 rounded border ${
+          strong ? "text-accent-2 border-accent-2/30 bg-accent-2/10" : "text-accent border-accent/30 bg-accent/10"
+        }`}
+      >
+        {level}
+      </span>
+    </div>
+  );
+}
 
 export function About() {
   const { lang, t } = useLanguageTheme();
   const [selectedGroup, setSelectedGroup] = useState<string>("All");
 
   // Collect all unique categories for filters
-  const categories = ["All", ...techStack.map(item => lang === "pt" ? item.group : item.groupEn)];
+  const categories = ["All", ...techStack.map(item => item.group[lang])];
 
   // Get items based on selection
   const filteredItems = selectedGroup === "All"
     ? techStack.flatMap(stack => stack.items)
-    : techStack.find(stack => (lang === "pt" ? stack.group : stack.groupEn) === selectedGroup)?.items || [];
+    : techStack.find(stack => stack.group[lang] === selectedGroup)?.items || [];
 
   return (
     <section id="about" className="py-24 md:py-32 bg-bg relative overflow-hidden">
@@ -106,8 +112,8 @@ export function About() {
                 </p>
                 <p className="text-xs text-text-2 leading-relaxed">
                   {lang === "pt" 
-                    ? "Buscando estágios ou posições júnior como desenvolvedor de software."
-                    : "Seeking internships or junior positions as a software developer."}
+                    ? "Buscando estágios ou posições júnior em desenvolvimento de software e suporte de TI."
+                    : "Seeking internships or junior positions in software development and IT support."}
                 </p>
                 <a
                   href="#contact"
@@ -127,27 +133,14 @@ export function About() {
                 <span className="font-[family-name:var(--font-jetbrains)] text-xs text-text-2 uppercase tracking-wider block mb-6">
                   {lang === "pt" ? "Nível de Proficiência" : "Proficiency Level"}
                 </span>
-                <div className="space-y-5">
-                  {skills.map((skill, i) => (
-                    <div key={skill.name}>
-                      <div className="flex items-center justify-between mb-1 text-xs">
-                        <span className="font-[family-name:var(--font-jetbrains)] text-text font-medium">
-                          {skill.name}
-                        </span>
-                        <span className="font-[family-name:var(--font-jetbrains)] text-text-3">
-                          {skill.level[lang]}
-                        </span>
-                      </div>
-                      <div className="w-full h-1 bg-border/40 rounded-full overflow-hidden">
-                        <motion.div
-                          initial={{ width: 0 }}
-                          whileInView={{ width: `${skill.percent}%` }}
-                          viewport={{ once: true }}
-                          transition={{ duration: 1.2, delay: i * 0.05, ease: "easeOut" }}
-                          className="h-full rounded-full bg-gradient-to-r from-accent to-accent-2"
-                        />
-                      </div>
-                    </div>
+                <div className="space-y-3">
+                  {skills.map((skill) => (
+                    <LevelRow
+                      key={skill.name}
+                      name={skill.name}
+                      level={skill.level[lang]}
+                      strong={skill.level.en === "Advanced"}
+                    />
                   ))}
                 </div>
               </div>
@@ -186,7 +179,7 @@ export function About() {
                       // Show all grouped nicely
                       techStack.map((group) => (
                         <motion.div
-                          key={group.group}
+                          key={group.group.en}
                           layout
                           initial={{ opacity: 0, scale: 0.9 }}
                           animate={{ opacity: 1, scale: 1 }}
@@ -195,7 +188,7 @@ export function About() {
                           className="bg-bg-3/40 border border-border/20 rounded-xl p-4 flex flex-col gap-2 flex-grow min-w-[200px] sm:max-w-[48%]"
                         >
                           <div className="font-[family-name:var(--font-jetbrains)] text-[10px] text-accent-2 tracking-widest uppercase font-semibold">
-                            {lang === "pt" ? group.group : group.groupEn}
+                            {group.group[lang]}
                           </div>
                           <div className="flex flex-wrap gap-1.5">
                             {group.items.map((item) => (
@@ -227,6 +220,46 @@ export function About() {
                     )}
                   </AnimatePresence>
                 </div>
+              </div>
+            </div>
+          </FadeIn>
+
+          {/* Card 5: Soft Skills (Col span 2) */}
+          <FadeIn delay={0.35} className="lg:col-span-2 flex">
+            <div className="glass-premium rounded-2xl p-8 w-full">
+              <span className="font-[family-name:var(--font-jetbrains)] text-xs text-text-2 uppercase tracking-wider block mb-6">
+                Soft Skills
+              </span>
+              <div className="grid sm:grid-cols-3 gap-4">
+                {softSkills.map((skill) => (
+                  <div key={skill.title.en} className="bg-bg-3/40 border border-border/20 rounded-xl p-4">
+                    <div className="font-[family-name:var(--font-jetbrains)] text-[10px] text-accent-2 tracking-widest uppercase font-semibold mb-2">
+                      {skill.title[lang]}
+                    </div>
+                    <p className="text-text-2 text-xs leading-relaxed font-light">
+                      {skill.description[lang]}
+                    </p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </FadeIn>
+
+          {/* Card 6: Spoken Languages */}
+          <FadeIn delay={0.4} className="flex">
+            <div className="glass-premium rounded-2xl p-6 w-full">
+              <span className="font-[family-name:var(--font-jetbrains)] text-xs text-text-2 uppercase tracking-wider block mb-6">
+                {lang === "pt" ? "Idiomas" : "Languages"}
+              </span>
+              <div className="space-y-3">
+                {spokenLanguages.map((item) => (
+                  <LevelRow
+                    key={item.name.en}
+                    name={item.name[lang]}
+                    level={item.level[lang]}
+                    strong={item.level.en === "Native"}
+                  />
+                ))}
               </div>
             </div>
           </FadeIn>

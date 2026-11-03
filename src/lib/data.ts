@@ -3,35 +3,77 @@
 export const personalInfo = {
   name: "Thiago Gomes",
   role: {
-    pt: "Full-Stack Software Engineer",
-    en: "Full-Stack Software Engineer"
+    pt: "Desenvolvedor Full-Stack",
+    en: "Full-Stack Developer"
   },
   roleShort: {
-    pt: "Full-Stack Engineer",
-    en: "Full-Stack Engineer"
+    pt: "Dev Full-Stack",
+    en: "Full-Stack Dev"
   },
   email: "thiagogomes1337@gmail.com",
   linkedin: "https://www.linkedin.com/in/thiago-gomes-fc/",
   github: "https://github.com/Thg1zZ",
   whatsapp: "https://wa.me/5521980635807", // To integrate your WhatsApp: Change this URL to https://wa.me/55 + your area code + your phone number
   whatsappDisplay: "+55 (21) 98063-5807", // Change this to your display phone number
-  cvUrl: `${process.env.NEXT_PUBLIC_BASE_PATH || ""}/assets/Curriculo_Thiago_Gomes_Final_Unica_Pagina.pdf`,
+  cvUrl: `${process.env.NEXT_PUBLIC_BASE_PATH || ""}/assets/ThiagoGomesCV-2026.pdf`,
   available: true,
   stats: [
     { value: "3+", label: { pt: "Anos de Exp.", en: "Years of Exp." } },
     { value: "20+", label: { pt: "Projetos", en: "Projects" } },
-    { value: "8", label: { pt: "Tecnologias", en: "Technologies" } },
-    { value: "3", label: { pt: "Certificações", en: "Certifications" } },
+    { value: "10", label: { pt: "Linguagens", en: "Languages" } },
+    { value: "7", label: { pt: "Certificações", en: "Certifications" } },
   ],
 };
 
+const advanced = { pt: "Avançado", en: "Advanced" };
+const intermediate = { pt: "Intermediário", en: "Intermediate" };
+
 export const skills = [
-  { icon: "⚙", name: "C / C++", level: { pt: "Avançado", en: "Advanced" }, percent: 92 },
-  { icon: "☕", name: "Java", level: { pt: "Avançado", en: "Advanced" }, percent: 88 },
-  { icon: "🌐", name: "HTML / CSS / JS", level: { pt: "Avançado", en: "Advanced" }, percent: 90 },
-  { icon: "📊", name: "Power BI", level: { pt: "Intermediário", en: "Intermediate" }, percent: 82 },
-  { icon: "🤖", name: "IA / LLM API", level: { pt: "Intermediário", en: "Intermediate" }, percent: 78 },
-  { icon: "🏗", name: "Software Eng.", level: { pt: "Avançado", en: "Advanced" }, percent: 95 },
+  { name: "TypeScript / JavaScript", level: advanced },
+  { name: "Next.js / React", level: advanced },
+  { name: "Node.js / APIs REST", level: advanced },
+  { name: "Java / Spring Boot", level: advanced },
+  { name: "C / C++", level: intermediate },
+  { name: "PostgreSQL / SQL", level: intermediate },
+  { name: "IA / LLM / RAG", level: intermediate },
+];
+
+export const techStack = [
+  { group: { pt: "Linguagens", en: "Languages" }, items: ["TypeScript", "JavaScript", "Java", "C", "C++", "Python", "SQL", "Bash", "HTML5", "CSS3"] },
+  { group: { pt: "Frontend", en: "Frontend" }, items: ["Next.js", "React", "Tailwind CSS"] },
+  { group: { pt: "Backend & APIs", en: "Backend & APIs" }, items: ["Node.js", "Express", "Spring Boot", "Zod", "JDBC", "REST APIs", "Webhooks", "JWT", "WhatsApp Cloud API"] },
+  { group: { pt: "Dados", en: "Data" }, items: ["PostgreSQL", "Prisma", "Drizzle", "pgvector", "Oracle DB", "Power BI", "Excel"] },
+  { group: { pt: "IA", en: "AI" }, items: ["OpenAI", "Google Gemini", "Anthropic Claude", "RAG", "LLM APIs", "AI Agents"] },
+  { group: { pt: "Infra & QA", en: "Infra & QA" }, items: ["Git", "GitHub", "GitLab", "Docker", "Linux VPS", "nginx", "PM2", "AWS S3 / SES", "Playwright", "TCP/IP"] },
+];
+
+export const spokenLanguages = [
+  { name: { pt: "Português", en: "Portuguese" }, level: { pt: "Nativo", en: "Native" } },
+  { name: { pt: "Inglês", en: "English" }, level: { pt: "Básico", en: "Basic" } },
+];
+
+export const softSkills = [
+  {
+    title: { pt: "Resolução de Problemas", en: "Problem Solving" },
+    description: {
+      pt: "Capacidade analítica para identificar falhas e implementar melhorias eficazes.",
+      en: "Analytical ability to identify failures and implement effective improvements."
+    },
+  },
+  {
+    title: { pt: "Colaboração e Proatividade", en: "Collaboration & Proactivity" },
+    description: {
+      pt: "Perfil dinâmico, com facilidade para trabalhar em equipes multidisciplinares.",
+      en: "Dynamic profile, comfortable working in multidisciplinary teams."
+    },
+  },
+  {
+    title: { pt: "Comunicação Técnica", en: "Technical Communication" },
+    description: {
+      pt: "Documentação e redação de conteúdo técnico para públicos técnicos e não técnicos.",
+      en: "Documentation and technical writing for technical and non-technical audiences."
+    },
+  },
 ];
 
 export const education = [
@@ -40,10 +82,33 @@ export const education = [
     degree: { pt: "Bacharelado em Ciência da Computação", en: "B.S. in Computer Science" },
     institution: { pt: "Universidade Estácio de Sá", en: "Universidade Estácio de Sá" },
     description: {
-      pt: "Previsão de Conclusão: 2027. Anteriormente: Universidade Veiga de Almeida (UVA) — Transferência Acadêmica.",
-      en: "Expected graduation: 2027. Previously enrolled at Universidade Veiga de Almeida (UVA) — Academic Transfer."
+      pt: "Previsão de conclusão: dezembro de 2027. Anteriormente: Universidade Veiga de Almeida (UVA) — Transferência Acadêmica.",
+      en: "Expected graduation: December 2027. Previously enrolled at Universidade Veiga de Almeida (UVA) — Academic Transfer."
     },
     status: "current",
+  },
+  {
+    date: { pt: "2026 — 15h", en: "2026 — 15h" },
+    degree: {
+      pt: "IBM Bob: IA de Nível Empresarial para Desenvolvedores e Tech Leaders",
+      en: "IBM Bob: Enterprise-Grade AI for Developers and Tech Leaders"
+    },
+    institution: { pt: "DIO e IBM", en: "DIO & IBM" },
+    description: {
+      pt: "Uso de IA generativa de nível empresarial no ciclo de desenvolvimento de software, com foco em produtividade de desenvolvedores e liderança técnica.",
+      en: "Enterprise-grade generative AI across the software development lifecycle, focused on developer productivity and technical leadership."
+    },
+    status: "done",
+  },
+  {
+    date: { pt: "2026", en: "2026" },
+    degree: { pt: "Programa em Prompting Responsável", en: "Responsible Prompting Program" },
+    institution: { pt: "Santander, Microsoft e Founderz", en: "Santander, Microsoft & Founderz" },
+    description: {
+      pt: "Uso ético e responsável de IA generativa, com técnicas de prompting para resultados confiáveis e seguros.",
+      en: "Ethical and responsible use of generative AI, with prompting techniques for reliable and safe results."
+    },
+    status: "done",
   },
   {
     date: { pt: "Concluído — 28h", en: "Completed — 28h" },
@@ -56,7 +121,7 @@ export const education = [
     status: "done",
   },
   {
-    date: { pt: "Em andamento", en: "In progress" },
+    date: { pt: "Em fase final", en: "Final stage" },
     degree: { pt: "Java Cloud Native", en: "Java Cloud Native" },
     institution: { pt: "Fundação Bradesco", en: "Fundação Bradesco" },
     description: {
@@ -109,23 +174,54 @@ export const education = [
 
 export const experience = [
   {
-    date: { pt: "2024", en: "2024" },
-    role: { pt: "Mesário — Eleições 2024", en: "Poll Worker — 2024 Elections" },
-    company: { pt: "Justiça Eleitoral", en: "Electoral Justice" },
+    date: { pt: "2026", en: "2026" },
+    role: { pt: "Desenvolvedor Fullstack", en: "Full-Stack Developer" },
+    company: { pt: "DMTN Sistemas — Tecnologia e Soluções", en: "DMTN Sistemas — Tecnologia e Soluções" },
     description: {
-      pt: "Atendimento e orientação ao público, registro de informações em sistema eletrônico e organização do fluxo de votação sob alta demanda.",
-      en: "Customer service and guidance, electronic system data entry, and voting flow management under high demand."
+      pt: "Desenvolvimento de 10 projetos para clientes com Next.js, React, TypeScript, Node.js e PostgreSQL: sites institucionais, landing pages, e-commerce, ERP, bot de WhatsApp e assistente com IA.",
+      en: "Built 10 client projects with Next.js, React, TypeScript, Node.js and PostgreSQL: corporate websites, landing pages, e-commerce, ERP, a WhatsApp bot and an AI assistant."
     },
-    link: null,
+    highlights: [
+      {
+        pt: "E-commerce com checkout em etapas, reserva de estoque validada no servidor, pagamento por cartão e PIX, webhook com validação de autenticidade e processamento idempotente, frete pela API dos Correios e painel administrativo.",
+        en: "E-commerce with multi-step checkout, server-validated stock reservation, card and PIX payments, authenticated webhooks with idempotent processing, shipping via the Correios API and an admin panel."
+      },
+      {
+        pt: "Bot de pedidos no WhatsApp com a API oficial da Meta: webhook com verificação de assinatura, limite de mensagens por número, extração de dados com IA e transcrição de áudio e vídeo.",
+        en: "WhatsApp ordering bot on Meta's official API: signature-verified webhook, per-number message limits, AI data extraction and audio/video transcription."
+      },
+      {
+        pt: "Assistente de IA com RAG (PostgreSQL + pgvector) que responde com base em documentos internos e gera arquivos PDF e DOCX.",
+        en: "AI assistant with RAG (PostgreSQL + pgvector) that answers from internal documents and generates PDF and DOCX files."
+      },
+      {
+        pt: "Migração de sites de WordPress/Elementor para Next.js, com foco em performance, SEO e acessibilidade.",
+        en: "Migrated WordPress/Elementor sites to Next.js, focusing on performance, SEO and accessibility."
+      },
+      {
+        pt: "QA de ERP em homologação (roteiros de teste, conexão bancária, importação de extrato OFX) e planejamento técnico de novos módulos (modelagem de dados, permissões e auditoria).",
+        en: "ERP QA in staging (test scripts, bank connection, OFX statement import) and technical planning of new modules (data modeling, permissions and auditing)."
+      },
+      {
+        pt: "Planilhas Excel e Google Sheets para controle e análise financeira, padronização de propostas comerciais e documentação técnica (README, planos de implementação e handoffs).",
+        en: "Excel and Google Sheets for financial control and analysis, standardized sales proposals and technical documentation (READMEs, implementation plans and handoffs)."
+      },
+      {
+        pt: "Autoria de 3 artigos técnicos no blog da empresa: emissão de NF-e em sistema próprio, integração entre site, e-commerce e tráfego pago, e automação de atendimento via WhatsApp.",
+        en: "Wrote 3 technical articles for the company blog: NF-e issuance in an in-house system, integrating website, e-commerce and paid traffic, and WhatsApp customer service automation."
+      },
+    ],
+    link: "https://dmtn.com.br/blog",
   },
   {
-    date: { pt: "jun/2023 — jul/2023", en: "Jun 2023 — Jul 2023" },
-    role: { pt: "Recepcionista e Auxiliar Administrativo", en: "Receptionist and Administrative Assistant" },
-    company: { pt: "Technopark Estacionamento LTDA", en: "Technopark Estacionamento LTDA" },
+    date: { pt: "2024 — Atual", en: "2024 — Present" },
+    role: { pt: "Técnico de TI e Desenvolvedor Fullstack", en: "IT Technician and Full-Stack Developer" },
+    company: { pt: "Freelancer", en: "Freelance" },
     description: {
-      pt: "Atendimento presencial e telefônico ao cliente, registro de informações e emissão de notas fiscais em sistema, além de apoio a rotinas administrativas e controle de dados operacionais.",
-      en: "In-person and telephone customer service, data entry and invoice issuance in the system, administrative routine support, and operational data control."
+      pt: "Desenvolvimento de scripts para automação de tarefas, otimizando processos manuais e produtividade. Suporte técnico especializado (remoto e presencial), garantindo a continuidade operacional de sistemas críticos. Gestão de versionamento e colaboração técnica via Git/GitHub.",
+      en: "Task automation scripts that streamline manual processes and productivity. Specialized technical support (remote and on-site), ensuring operational continuity of critical systems. Version control and technical collaboration via Git/GitHub."
     },
+    highlights: null,
     link: null,
   },
   {
@@ -136,7 +232,30 @@ export const experience = [
       pt: "Desenvolvimento de projetos utilizando HTML, CSS, JavaScript e C, aplicando lógica de programação e estruturas de dados. Uso de Figma para prototipação e GitHub para versionamento de código.",
       en: "Project development using HTML, CSS, JavaScript, and C, applying programming logic and data structures. Figma for prototyping and GitHub for version control."
     },
+    highlights: null,
     link: "https://github.com/Thg1zZ",
+  },
+  {
+    date: { pt: "2024", en: "2024" },
+    role: { pt: "Mesário — Eleições 2024", en: "Poll Worker — 2024 Elections" },
+    company: { pt: "Justiça Eleitoral", en: "Electoral Justice" },
+    description: {
+      pt: "Atendimento e orientação ao público, registro de informações em sistema eletrônico e organização do fluxo de votação sob alta demanda.",
+      en: "Customer service and guidance, electronic system data entry, and voting flow management under high demand."
+    },
+    highlights: null,
+    link: null,
+  },
+  {
+    date: { pt: "jun/2023 — jul/2023", en: "Jun 2023 — Jul 2023" },
+    role: { pt: "Auxiliar Administrativo e Atendimento", en: "Administrative Assistant and Customer Service" },
+    company: { pt: "Technopark Estacionamento LTDA", en: "Technopark Estacionamento LTDA" },
+    description: {
+      pt: "Atendimento presencial e telefônico ao cliente, registro de informações e emissão de notas fiscais em sistema, além de apoio a rotinas administrativas e controle de dados operacionais.",
+      en: "In-person and telephone customer service, data entry and invoice issuance in the system, administrative routine support, and operational data control."
+    },
+    highlights: null,
+    link: null,
   },
 ];
 
@@ -150,7 +269,7 @@ export const projects = [
     },
     tags: ["Java 21", "Spring Boot 3", "Spring Security", "PostgreSQL", "Redis", "Docker", "Vanilla JS"],
     status: null,
-    link: null,
+    link: "https://github.com/Thg1zZ/SystemCar",
   },
   {
     num: "002",
