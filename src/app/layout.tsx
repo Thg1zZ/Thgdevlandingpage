@@ -35,23 +35,24 @@ const cormorantGaramond = Cormorant_Garamond({
 });
 
 export const metadata: Metadata = {
-  title: "Thiago Gomes | Full-Stack Software Engineer",
+  metadataBase: new URL("https://thg1zz.github.io"),
+  title: "Thiago Gomes | Desenvolvedor Full-Stack",
   description:
-    "Portfólio de Thiago Gomes, Engenheiro de Software Full-Stack especializado em C/C++, Java, Web, Inteligência Artificial e Ciência de Dados.",
+    "Portfólio de Thiago Gomes, Desenvolvedor Full-Stack e estudante de Ciência da Computação: Next.js, React, TypeScript, Node.js, PostgreSQL, Java e integrações com IA.",
   authors: [{ name: "Thiago Gomes" }],
-  keywords: ["Software Engineer", "Java", "C++", "Developer", "Full-Stack", "IA", "Power BI"],
+  keywords: ["Desenvolvedor Full-Stack", "Full-Stack Developer", "Next.js", "React", "TypeScript", "Node.js", "PostgreSQL", "Java", "Spring Boot", "IA"],
   openGraph: {
     type: "website",
-    url: "https://github.com/Thg1zZ",
-    title: "Thiago Gomes | Full-Stack Software Engineer",
+    url: "https://thg1zz.github.io/landingpage/",
+    title: "Thiago Gomes | Desenvolvedor Full-Stack",
     description:
-      "Engenheiro de software especializado no desenvolvimento de sistemas complexos, análise de dados e integrações inteligentes.",
+      "Desenvolvedor Full-Stack com experiência em sites, e-commerce, automações e integrações com APIs e IA usando Next.js, React, TypeScript e Node.js.",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Thiago Gomes | Full-Stack Software Engineer",
+    title: "Thiago Gomes | Desenvolvedor Full-Stack",
     description:
-      "Engenheiro de software especializado no desenvolvimento de sistemas complexos, análise de dados e integrações inteligentes.",
+      "Desenvolvedor Full-Stack com experiência em sites, e-commerce, automações e integrações com APIs e IA usando Next.js, React, TypeScript e Node.js.",
   },
 };
 
