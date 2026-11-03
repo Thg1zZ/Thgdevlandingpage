@@ -42,9 +42,9 @@ const translations: Record<Language, Record<string, string>> = {
 
     // About
     about_title: "Sobre Mim",
-    about_p1: "Sou Desenvolvedor Full-Stack com experiência prática em software house, onde desenvolvi 10 projetos para clientes — sites institucionais, e-commerce, ERP, bot de WhatsApp e assistente com IA — usando Next.js, React, TypeScript, Node.js e PostgreSQL.",
-    about_p2: "Trabalho com integrações de APIs e webhooks (pagamentos com cartão e PIX, WhatsApp Cloud API, Correios), IA com LLMs e RAG, e tenho base sólida em Java/Spring Boot e C/C++. Também atuo em suporte de sistemas, redes e troubleshooting.",
-    about_p3: "Atualmente cursando Bacharelado em Ciência da Computação na Universidade Estácio de Sá (previsão: dez/2027), em busca de oportunidades de estágio ou Júnior em Desenvolvimento de Software e Suporte de TI.",
+    about_p1: "Sou o Thiago Gomes, tenho {age} anos e sou desenvolvedor full-stack. Gosto de transformar problemas de negócio em software que funciona de verdade. Hoje trabalho em uma software house, onde já entreguei 10 projetos para clientes, de sites institucionais a e-commerce, ERP e assistentes com IA.",
+    about_p2: "Meu dia a dia é Next.js, React, TypeScript e Node.js com PostgreSQL, integrando pagamentos, WhatsApp e modelos de IA. Também tenho experiência com Java/Spring Boot e com suporte de TI.",
+    about_p3: "Estou no Bacharelado em Ciência da Computação (Estácio, conclusão em 2027) e busco uma oportunidade de estágio ou júnior para crescer em um time de tecnologia.",
     skill_advanced: "Avançado",
     skill_intermediate: "Intermediário",
 
@@ -109,9 +109,9 @@ const translations: Record<Language, Record<string, string>> = {
 
     // About
     about_title: "About Me",
-    about_p1: "I'm a Full-Stack Developer with hands-on software house experience, where I built 10 client projects — corporate websites, e-commerce, ERP, a WhatsApp bot and an AI assistant — using Next.js, React, TypeScript, Node.js and PostgreSQL.",
-    about_p2: "I work with API and webhook integrations (card and PIX payments, WhatsApp Cloud API, Correios), AI with LLMs and RAG, and have a solid foundation in Java/Spring Boot and C/C++. I also handle systems support, networking and troubleshooting.",
-    about_p3: "Currently pursuing a B.S. in Computer Science at Universidade Estácio de Sá (expected Dec 2027), seeking internship or junior opportunities in Software Development and IT Support.",
+    about_p1: "I'm Thiago Gomes, a {age}-year-old full-stack developer. I enjoy turning business problems into software that actually works. I currently work at a software house, where I've delivered 10 client projects, from corporate websites to e-commerce, ERP and AI assistants.",
+    about_p2: "My day-to-day stack is Next.js, React, TypeScript and Node.js with PostgreSQL, integrating payments, WhatsApp and AI models. I also have experience with Java/Spring Boot and IT support.",
+    about_p3: "I'm pursuing a B.S. in Computer Science (Estácio, graduating in 2027) and looking for an internship or junior role to grow within a tech team.",
     skill_advanced: "Advanced",
     skill_intermediate: "Intermediate",
 

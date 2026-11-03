@@ -7,6 +7,7 @@ const nextConfig = {
   basePath: process.env.GITHUB_ACTIONS ? "/landingpage" : "",
   env: {
     NEXT_PUBLIC_BASE_PATH: process.env.GITHUB_ACTIONS ? "/landingpage" : "",
+    NEXT_PUBLIC_BUILD_DATE: new Date().toISOString(),
   },
 };
 

@@ -2,6 +2,7 @@
 
 export const personalInfo = {
   name: "Thiago Gomes",
+  birthDate: "2004-01-27",
   role: {
     pt: "Desenvolvedor Full-Stack",
     en: "Full-Stack Developer"

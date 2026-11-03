@@ -1,11 +1,16 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useSyncExternalStore } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { FadeIn } from "@/components/ui/Animations";
-import { skills, techStack, softSkills, spokenLanguages } from "@/lib/data";
+import { personalInfo, skills, techStack, softSkills, spokenLanguages } from "@/lib/data";
 import { useLanguageTheme } from "@/context/LanguageThemeContext";
+import { getAge } from "@/lib/age";
 import { Briefcase, MapPin, Award, CheckCircle } from "lucide-react";
+
+const noSubscribe = () => () => {};
+const currentAge = () => getAge(personalInfo.birthDate);
+const buildAge = () => getAge(personalInfo.birthDate, new Date(process.env.NEXT_PUBLIC_BUILD_DATE!));
 
 function LevelRow({ name, level, strong }: { name: string; level: string; strong: boolean }) {
   return (
@@ -25,6 +30,8 @@ function LevelRow({ name, level, strong }: { name: string; level: string; strong
 export function About() {
   const { lang, t } = useLanguageTheme();
   const [selectedGroup, setSelectedGroup] = useState<string>("All");
+  // Static export: hydrate with the build-time age, then switch to today's age on the client
+  const age = useSyncExternalStore(noSubscribe, currentAge, buildAge);
 
   // Collect all unique categories for filters
   const categories = ["All", ...techStack.map(item => item.group[lang])];
@@ -45,7 +52,7 @@ export function About() {
           <span className="font-[family-name:var(--font-jetbrains)] text-xs text-accent tracking-[0.2em] uppercase">
             {"// 01"}
           </span>
-          <h2 className="text-3xl md:text-4xl font-bold font-[family-name:var(--font-jetbrains)] text-text">
+          <h2 className="text-4xl md:text-5xl font-semibold font-serif text-text">
             {t("about_title")}
           </h2>
           <div className="flex-1 h-px bg-gradient-to-r from-accent/30 to-transparent" />
@@ -68,7 +75,7 @@ export function About() {
                   </span>
                 </div>
                 <div className="space-y-4 leading-relaxed font-light text-text-2 text-sm sm:text-base">
-                  <p dangerouslySetInnerHTML={{ __html: t("about_p1") }} />
+                  <p dangerouslySetInnerHTML={{ __html: t("about_p1").replace("{age}", String(age)) }} />
                   <p dangerouslySetInnerHTML={{ __html: t("about_p2") }} />
                   <p dangerouslySetInnerHTML={{ __html: t("about_p3") }} />
                 </div>
@@ -91,17 +98,17 @@ export function About() {
               
               <div className="w-full flex justify-between items-center text-xs font-[family-name:var(--font-jetbrains)] text-text-3">
                 <span>STATUS</span>
-                <span className="flex items-center gap-1 text-[#00d4aa]">
-                  <span className="w-1.5 h-1.5 rounded-full bg-[#00d4aa] animate-ping" />
+                <span className="flex items-center gap-1 text-[#FFB86B]">
+                  <span className="w-1.5 h-1.5 rounded-full bg-[#FFB86B] animate-ping" />
                   {lang === "pt" ? "ATIVO" : "ACTIVE"}
                 </span>
               </div>
 
               {/* Glowing radar pulse */}
               <div className="my-8 relative flex items-center justify-center">
-                <div className="absolute w-24 h-24 bg-[#00d4aa]/5 rounded-full animate-ping" />
-                <div className="absolute w-16 h-16 bg-[#00d4aa]/15 rounded-full animate-pulse" />
-                <div className="w-6 h-6 bg-[#00d4aa] rounded-full shadow-[0_0_16px_rgba(0,212,170,0.8)] flex items-center justify-center text-white">
+                <div className="absolute w-24 h-24 bg-[#FFB86B]/5 rounded-full animate-ping" />
+                <div className="absolute w-16 h-16 bg-[#FFB86B]/15 rounded-full animate-pulse" />
+                <div className="w-6 h-6 bg-[#FFB86B] rounded-full shadow-[0_0_16px_rgba(255,184,107,0.8)] flex items-center justify-center text-[#1A0E05]">
                   <CheckCircle size={12} />
                 </div>
               </div>
@@ -118,7 +125,7 @@ export function About() {
                 <a
                   href="#contact"
                   data-cursor-text="hire"
-                  className="cursor-pointer mt-4 inline-flex items-center justify-center w-full bg-[#00d4aa] hover:bg-[#00b38f] text-white text-xs font-semibold uppercase tracking-wider py-2.5 rounded-lg transition-all duration-200"
+                  className="cursor-pointer mt-4 inline-flex items-center justify-center w-full bg-[#FFB86B] hover:bg-[#F5A04F] text-[#1A0E05] text-xs font-semibold uppercase tracking-wider py-2.5 rounded-lg transition-all duration-200"
                 >
                   {lang === "pt" ? "Contate-me" : "Get in Touch"}
                 </a>
@@ -163,7 +170,7 @@ export function About() {
                       onClick={() => setSelectedGroup(category)}
                       className={`cursor-pointer px-3 py-1.5 rounded-lg text-xs font-[family-name:var(--font-jetbrains)] transition-all duration-300 ${
                         selectedGroup === category
-                          ? "bg-accent text-white shadow-[0_4px_12px_rgba(74,158,255,0.25)]"
+                          ? "bg-accent text-on-accent shadow-[0_4px_12px_rgba(255,138,61,0.25)]"
                           : "bg-bg-3/60 text-text-2 hover:bg-bg-3 hover:text-text"
                       }`}
                     >
