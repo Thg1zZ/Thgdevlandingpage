@@ -68,8 +68,10 @@ export function Projects() {
               return (
                 <button
                   key={tab.type}
+                  type="button"
                   onClick={() => setFilter(tab.type)}
-                  className={`cursor-pointer relative px-4 py-2 text-xs font-[family-name:var(--font-jetbrains)] uppercase tracking-wider rounded-lg transition-colors duration-300 font-semibold ${
+                  aria-pressed={selected}
+                  className={`cursor-pointer relative isolate px-4 py-2 text-xs font-[family-name:var(--font-jetbrains)] uppercase tracking-wider rounded-lg transition-colors duration-300 font-semibold ${
                     selected ? "text-on-accent" : "text-text-2 hover:text-text"
                   }`}
                 >
