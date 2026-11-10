@@ -1,20 +1,38 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useSyncExternalStore } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { FadeIn } from "@/components/ui/Animations";
 import { projects } from "@/lib/data";
 import { ArrowUpRight } from "lucide-react";
 import { GithubIcon } from "@/components/ui/Icons";
 import { ProjectModal } from "@/components/ui/ProjectModal";
+import { projectUrl } from "@/lib/projectLinks";
 import { useLanguageTheme } from "@/context/LanguageThemeContext";
 
 type FilterType = "all" | "java" | "web" | "python";
 
+function subscribeToProject(callback: () => void) {
+  window.addEventListener("popstate", callback);
+  return () => window.removeEventListener("popstate", callback);
+}
+
+function selectedProjectId() {
+  return new URLSearchParams(window.location.search).get("project");
+}
+
+function navigateProject(projectId: string | null) {
+  const url = projectUrl(window.location.href, projectId);
+  if (projectId) window.history.pushState(null, "", url);
+  else window.history.replaceState(null, "", url);
+  window.dispatchEvent(new PopStateEvent("popstate"));
+}
+
 export function Projects() {
   const { lang, t } = useLanguageTheme();
   const [filter, setFilter] = useState<FilterType>("all");
-  const [selectedProject, setSelectedProject] = useState<(typeof projects)[number] | null>(null);
+  const projectId = useSyncExternalStore(subscribeToProject, selectedProjectId, () => null);
+  const selectedProject = projects.find((project) => project.num === projectId);
 
   const filteredProjects = projects.filter((p) => {
     if (filter === "all") return true;
@@ -108,7 +126,7 @@ export function Projects() {
                   >
                     <button
                       type="button"
-                      onClick={() => setSelectedProject(project)}
+                      onClick={() => navigateProject(project.num)}
                       aria-label={`${lang === "pt" ? "Ver detalhes de" : "View details of"} ${project.title[lang]}`}
                       aria-haspopup="dialog"
                       className="absolute inset-0 z-10 cursor-pointer rounded-2xl focus-visible:outline-2 focus-visible:-outline-offset-4 focus-visible:outline-accent"
@@ -183,7 +201,7 @@ export function Projects() {
           </a>
         </FadeIn>
       </div>
-      {selectedProject && <ProjectModal key={selectedProject.num} project={selectedProject} onClose={() => setSelectedProject(null)} />}
+      {selectedProject && <ProjectModal key={selectedProject.num} project={selectedProject} onClose={() => navigateProject(null)} />}
     </section>
   );
 }

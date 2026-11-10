@@ -2,11 +2,12 @@
 
 import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
-import { ArrowRight, ArrowUpRight, Check, ChevronLeft, ChevronRight, ImageOff, Layers3, X } from "lucide-react";
+import { ArrowRight, ArrowUpRight, Check, ChevronLeft, ChevronRight, ImageOff, Layers3, Link as LinkIcon, X } from "lucide-react";
 import type { projects } from "@/lib/data";
 import { projectDetails, type ProjectDetails } from "@/lib/projectDetails";
 import { useLanguageTheme } from "@/context/LanguageThemeContext";
 import { GithubIcon } from "./Icons";
+import { projectUrl } from "@/lib/projectLinks";
 
 type Project = (typeof projects)[number];
 type Language = "pt" | "en";
@@ -14,6 +15,7 @@ const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
 const copy = {
   pt: {
     project: "Projeto em detalhe", close: "Fechar detalhes do projeto",
+    share: "Copiar link", copied: "Link copiado!", copyError: "Não foi possível copiar. Copie o link da barra de endereço.",
     overview: "A ideia por trás", features: "O que o projeto faz",
     architecture: "Como foi construído", validation: "Testes e contexto",
     stack: "Tecnologias", code: "Explorar código", live: "Abrir demonstração",
@@ -24,6 +26,7 @@ const copy = {
   },
   en: {
     project: "Project in detail", close: "Close project details",
+    share: "Copy link", copied: "Link copied!", copyError: "Could not copy. Copy the link from the address bar.",
     overview: "The idea behind it", features: "What the project does",
     architecture: "How it was built", validation: "Testing and context",
     stack: "Technologies", code: "Explore code", live: "Open demo",
@@ -82,10 +85,20 @@ function Gallery({ images, lang }: { images: ProjectDetails["images"]; lang: Lan
 export function ProjectModal({ project, onClose }: { project: Project; onClose: () => void }) {
   const dialogRef = useRef<HTMLDialogElement>(null);
   const triggerRef = useRef<HTMLElement | null>(null);
+  const [copyStatus, setCopyStatus] = useState<"idle" | "copied" | "error">("idle");
   const { lang } = useLanguageTheme();
   const details = projectDetails[project.num];
   const t = copy[lang];
   const isLive = !project.link.includes("github.com");
+
+  async function copyLink() {
+    try {
+      await navigator.clipboard.writeText(projectUrl(window.location.href, project.num));
+      setCopyStatus("copied");
+    } catch {
+      setCopyStatus("error");
+    }
+  }
 
   useEffect(() => {
     const dialog = dialogRef.current;
@@ -161,6 +174,8 @@ export function ProjectModal({ project, onClose }: { project: Project; onClose: 
         </div>
 
         <footer className="flex shrink-0 flex-wrap items-center justify-end gap-3 border-t border-border/50 bg-bg-2 px-5 py-4 sm:px-8">
+          <p role="status" className="w-full text-right text-xs text-text-2 empty:hidden">{copyStatus === "copied" ? t.copied : copyStatus === "error" ? t.copyError : ""}</p>
+          <button type="button" onClick={copyLink} className="inline-flex cursor-pointer items-center justify-center gap-2 rounded-xl border border-border px-4 py-2.5 text-xs text-text transition-colors hover:border-accent hover:text-accent focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"><LinkIcon size={16} aria-hidden="true" />{t.share}</button>
           <a href={details.repository} target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center gap-2 rounded-xl border border-border px-4 py-2.5 text-xs text-text transition-colors hover:border-accent hover:text-accent focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"><GithubIcon size={16} />{t.code}<ArrowUpRight size={14} aria-hidden="true" /></a>
           {isLive && <a href={project.link} target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center gap-2 rounded-xl bg-accent px-4 py-2.5 text-xs font-semibold text-on-accent transition-colors hover:bg-accent-2 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent">{t.live}<ArrowUpRight size={14} aria-hidden="true" /></a>}
         </footer>
