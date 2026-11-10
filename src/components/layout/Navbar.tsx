@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence, useMotionValue } from "framer-motion";
 import { Menu, X, Sun, Moon, MessageSquare } from "lucide-react";
 import Link from "next/link";
 import { useLanguageTheme } from "@/context/LanguageThemeContext";
@@ -10,7 +10,7 @@ export function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const [activeSection, setActiveSection] = useState("");
-  const [scrollProgress, setScrollProgress] = useState(0);
+  const scrollProgress = useMotionValue(0);
   const { lang, theme, toggleLang, toggleTheme, t, mounted } = useLanguageTheme();
 
   const navLinks = [
@@ -23,15 +23,15 @@ export function Navbar() {
   ];
 
   useEffect(() => {
+    const sections = document.querySelectorAll<HTMLElement>("main section[id]");
     const handleScroll = () => {
       setScrolled(window.scrollY > 30);
 
       const max = document.documentElement.scrollHeight - window.innerHeight;
-      setScrollProgress(max > 0 ? (window.scrollY / max) * 100 : 0);
+      scrollProgress.set(max > 0 ? window.scrollY / max : 0);
 
       let current = "";
-      document.querySelectorAll("section[id]").forEach((section) => {
-        const s = section as HTMLElement;
+      sections.forEach((s) => {
         if (window.scrollY >= s.offsetTop - 180) current = s.id;
       });
       setActiveSection(current);
@@ -40,7 +40,7 @@ export function Navbar() {
     window.addEventListener("scroll", handleScroll, { passive: true });
     handleScroll();
     return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+  }, [scrollProgress]);
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 pointer-events-none flex flex-col items-center w-full">
@@ -131,9 +131,9 @@ export function Navbar() {
 
         {/* Scroll progress bar */}
         <div className="absolute bottom-0 left-0 right-0 h-[2px] bg-border/5 overflow-hidden pointer-events-none rounded-b-full">
-          <div
-            className="h-full bg-gradient-to-r from-[#FF8A3D] to-[#E8456B] transition-all duration-75 shadow-[0_0_8px_rgba(255,138,61,0.4)]"
-            style={{ width: `${scrollProgress}%` }}
+          <motion.div
+            className="h-full origin-left bg-gradient-to-r from-[#FF8A3D] to-[#E8456B] shadow-[0_0_8px_rgba(255,138,61,0.4)]"
+            style={{ scaleX: scrollProgress }}
           />
         </div>
       </motion.div>
@@ -186,9 +186,9 @@ export function Navbar() {
 
         {/* Mobile scroll progress */}
         <div className="absolute bottom-0 left-0 right-0 h-[2px] bg-border/5 overflow-hidden pointer-events-none rounded-b-2xl">
-          <div
-            className="h-full bg-gradient-to-r from-[#FF8A3D] to-[#E8456B] transition-all duration-75"
-            style={{ width: `${scrollProgress}%` }}
+          <motion.div
+            className="h-full origin-left bg-gradient-to-r from-[#FF8A3D] to-[#E8456B]"
+            style={{ scaleX: scrollProgress }}
           />
         </div>
       </div>

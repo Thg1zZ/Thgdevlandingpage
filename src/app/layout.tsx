@@ -64,12 +64,7 @@ export default function RootLayout({
   return (
     <html className={`${ibmPlexSans.variable} ${ibmPlexMono.variable} ${jetbrainsMono.variable} ${cormorantGaramond.variable}`}>
       <body className="antialiased relative min-h-screen">
-        {/* Luminous background Aurora Blobs */}
-        <div className="fixed inset-0 z-[-1] overflow-hidden pointer-events-none select-none">
-          <div className="absolute top-[10%] left-[20%] w-[35rem] h-[35rem] bg-accent/8 rounded-full blur-[140px] animate-float-slow" />
-          <div className="absolute bottom-[15%] right-[10%] w-[45rem] h-[45rem] bg-accent-2/6 rounded-full blur-[160px] animate-float-medium" />
-          <div className="absolute top-[50%] left-[60%] w-[30rem] h-[30rem] bg-accent-3/5 rounded-full blur-[130px] animate-float-slow" />
-        </div>
+        <div aria-hidden="true" className="aurora-background fixed inset-0 z-[-1] pointer-events-none select-none" />
 
         <LanguageThemeProvider>
           {children}

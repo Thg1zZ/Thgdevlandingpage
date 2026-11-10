@@ -138,16 +138,12 @@ body {
   box-shadow: 0 12px 40px 0 rgba(255,138,61, 0.1), inset 0 1px 1px 0 rgba(255, 255, 255, 0.1);
 }
 
-/* Aurora background floating blobs */
-@keyframes float-slow {
-  0%, 100% { transform: translate(0px, 0px) scale(1); }
-  33% { transform: translate(40px, -50px) scale(1.1); }
-  66% { transform: translate(-30px, 30px) scale(0.95); }
-}
-
-@keyframes float-medium {
-  0%, 100% { transform: translate(0px, 0px) scale(1); }
-  50% { transform: translate(-50px, 40px) scale(1.12); }
+/* Gradients preserve the glow without continuously filtering oversized layers. */
+.aurora-background {
+  background:
+    radial-gradient(ellipse 35rem 35rem at 35% 35%, color-mix(in srgb, var(--color-accent) 8%, transparent), transparent 75%),
+    radial-gradient(ellipse 45rem 45rem at 70% 65%, color-mix(in srgb, var(--color-accent-2) 6%, transparent), transparent 75%),
+    radial-gradient(ellipse 30rem 30rem at 80% 75%, color-mix(in srgb, var(--color-accent-3) 5%, transparent), transparent 75%);
 }
 
 @keyframes marquee {
@@ -161,14 +157,6 @@ body {
 
 .group:hover .animate-marquee {
   animation-play-state: paused;
-}
-
-.animate-float-slow {
-  animation: float-slow 22s infinite ease-in-out;
-}
-
-.animate-float-medium {
-  animation: float-medium 16s infinite ease-in-out;
 }
 
 /* Glow effects */
@@ -220,7 +208,6 @@ body {
 
 .project-dialog::backdrop {
   background: rgba(5, 4, 6, 0.78);
-  backdrop-filter: blur(12px);
 }
 
 .project-dialog[open] {
