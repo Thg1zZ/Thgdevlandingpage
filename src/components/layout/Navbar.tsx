@@ -16,9 +16,9 @@ export function Navbar() {
   const navLinks = [
     { href: "#home", label: lang === "pt" ? "Início" : "Home" },
     { href: "#about", label: t("nav_about") },
-    { href: "#education", label: t("nav_edu") },
     { href: "#experience", label: t("nav_exp") },
     { href: "#projects", label: t("nav_proj") },
+    { href: "#education", label: t("nav_edu") },
     { href: "#contact", label: t("nav_contact") },
   ];
 

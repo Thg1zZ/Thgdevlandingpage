@@ -4,8 +4,9 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { FadeIn } from "@/components/ui/Animations";
 import { projects } from "@/lib/data";
-import { ExternalLink, Zap } from "lucide-react";
+import { ArrowUpRight } from "lucide-react";
 import { GithubIcon } from "@/components/ui/Icons";
+import { ProjectModal } from "@/components/ui/ProjectModal";
 import { useLanguageTheme } from "@/context/LanguageThemeContext";
 
 type FilterType = "all" | "java" | "web" | "python";
@@ -13,6 +14,7 @@ type FilterType = "all" | "java" | "web" | "python";
 export function Projects() {
   const { lang, t } = useLanguageTheme();
   const [filter, setFilter] = useState<FilterType>("all");
+  const [selectedProject, setSelectedProject] = useState<(typeof projects)[number] | null>(null);
 
   const filteredProjects = projects.filter((p) => {
     if (filter === "all") return true;
@@ -50,7 +52,7 @@ export function Projects() {
         {/* Section Header */}
         <FadeIn className="flex items-center gap-4 mb-10">
           <span className="font-[family-name:var(--font-jetbrains)] text-xs text-accent tracking-[0.2em] uppercase">
-            {"// 04"}
+            {"// 03"}
           </span>
           <h2 className="text-4xl md:text-5xl font-semibold font-serif text-text">
             {t("proj_title")}
@@ -89,9 +91,6 @@ export function Projects() {
         <motion.div layout className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           <AnimatePresence mode="popLayout">
             {filteredProjects.map((project, i) => {
-              const isLive = project.link && !project.link.includes("github.com");
-              const cursorText = project.link ? (isLive ? "live" : "code") : "";
-
               return (
                 <motion.div
                   layout
@@ -103,9 +102,15 @@ export function Projects() {
                   className="flex"
                 >
                   <div
-                    data-cursor-text={cursorText}
-                    className="glass-premium rounded-2xl p-6 h-full flex flex-col hover:border-accent/40 hover:bg-accent/[0.02] transition-all duration-300 hover:-translate-y-1.5 hover:shadow-[0_12px_32px_rgba(0,0,0,0.3)] group relative overflow-hidden w-full"
+                    className="glass-premium rounded-2xl p-6 h-full flex flex-col hover:border-accent/40 hover:bg-accent/[0.02] transition-all duration-300 hover:-translate-y-1.5 hover:shadow-[0_12px_32px_rgba(0,0,0,0.3)] group relative overflow-hidden w-full focus-within:border-accent/60"
                   >
+                    <button
+                      type="button"
+                      onClick={() => setSelectedProject(project)}
+                      aria-label={`${lang === "pt" ? "Ver detalhes de" : "View details of"} ${project.title[lang]}`}
+                      aria-haspopup="dialog"
+                      className="absolute inset-0 z-10 cursor-pointer rounded-2xl focus-visible:outline-2 focus-visible:-outline-offset-4 focus-visible:outline-accent"
+                    />
                     {/* Glow effect overlay */}
                     <div className="absolute inset-0 bg-gradient-to-br from-accent/5 via-transparent to-accent-2/0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
 
@@ -148,30 +153,10 @@ export function Projects() {
 
                     {/* Link */}
                     <div className="flex items-center justify-between pt-4 border-t border-border/20">
-                      <span className="font-[family-name:var(--font-jetbrains)] text-[10px] text-text-3 uppercase tracking-wider">
-                        {project.link
-                          ? lang === "pt"
-                            ? "Acessar Projeto"
-                            : "Access Project"
-                          : lang === "pt"
-                          ? "Em desenvolvimento"
-                          : "In development"}
+                      <span className="font-[family-name:var(--font-jetbrains)] text-[10px] text-text-2 uppercase tracking-wider group-hover:text-accent transition-colors">
+                        {lang === "pt" ? "Explorar projeto" : "Explore project"}
                       </span>
-                      {project.link ? (
-                        <a
-                          href={project.link}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="cursor-pointer w-8 h-8 rounded-lg bg-accent/10 border border-accent/20 flex items-center justify-center text-accent hover:bg-accent hover:text-on-accent hover:border-accent transition-all duration-200 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
-                          aria-label={`${lang === "pt" ? "Acessar" : "Access"} ${project.title[lang]}`}
-                        >
-                          <ExternalLink size={13} />
-                        </a>
-                      ) : (
-                        <div className="w-8 h-8 rounded-lg bg-bg-3/60 border border-border/20 flex items-center justify-center">
-                          <Zap size={13} className="text-text-3" />
-                        </div>
-                      )}
+                      <span aria-hidden="true" className="w-8 h-8 rounded-lg bg-accent/10 border border-accent/20 flex items-center justify-center text-accent group-hover:bg-accent group-hover:text-on-accent transition-colors"><ArrowUpRight size={14} /></span>
                     </div>
                   </div>
                 </motion.div>
@@ -196,6 +181,7 @@ export function Projects() {
           </a>
         </FadeIn>
       </div>
+      {selectedProject && <ProjectModal key={selectedProject.num} project={selectedProject} onClose={() => setSelectedProject(null)} />}
     </section>
   );
 }

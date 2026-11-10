@@ -263,14 +263,14 @@ export const experience = [
 export const projects = [
   {
     num: "001",
-    title: { pt: "RodaLivre — Aluguel de Automóveis", en: "RodaLivre — Car Rental Platform" },
+    title: { pt: "TicketSystem — Venda de Ingressos", en: "TicketSystem — Ticket Sales" },
     description: {
-      pt: "Plataforma de alta performance para locação de veículos. Arquitetura estrita de camadas, segurança Defense in Depth, JWT stateless, RBAC, AES-256 e rate limiting com Redis. Frontend Vanilla JS com Chart.js.",
-      en: "High-performance vehicle rental platform. Layered architecture, Defense in Depth security, stateless JWT, RBAC, AES-256, and Redis rate limiting. Vanilla JS frontend with Chart.js."
+      pt: "Sistema de venda de ingressos com alta concorrência. Compara quatro estratégias de reserva com testes de carga k6, checkout idempotente e emissão assíncrona de ingressos via RabbitMQ.",
+      en: "Ticket sales system built for high concurrency. Compares four reservation strategies with k6 load tests, idempotent checkout, and asynchronous ticket issuance via RabbitMQ."
     },
-    tags: ["Java 21", "Spring Boot 3", "Spring Security", "PostgreSQL", "Redis", "Docker", "Vanilla JS"],
+    tags: ["Java 21", "Spring Boot 4", "PostgreSQL", "Redis", "RabbitMQ", "k6", "Docker", "Vanilla JS"],
     status: null,
-    link: "https://github.com/Thg1zZ/SystemCar",
+    link: "https://github.com/Thg1zZ/TicketSystem",
   },
   {
     num: "002",
@@ -287,23 +287,23 @@ export const projects = [
     num: "003",
     title: { pt: "Bot de Busca para Discord", en: "Discord Search Bot" },
     description: {
-      pt: "Aplicação em Python integrada à API do Discord que consome dados do DuckDuckGo e persiste consultas em Oracle, com respostas dinâmicas em tempo real.",
-      en: "Python application integrated with Discord API, consuming DuckDuckGo API and persisting searches in Oracle, with real-time dynamic responses."
+      pt: "Bot em Python que realiza buscas no DuckDuckGo diretamente pelo Discord, com comandos em português e inglês, resultados em embeds e processamento assíncrono.",
+      en: "Python bot that searches DuckDuckGo directly from Discord, with Portuguese and English commands, results in embeds, and asynchronous processing."
     },
-    tags: ["Python", "Discord API", "Oracle DB", "DuckDuckGo API"],
+    tags: ["Python", "Discord API", "DuckDuckGo", "asyncio"],
     status: null,
-    link: "https://github.com/Thg1zZ",
+    link: "https://github.com/Thg1zZ/Bot-Discord",
   },
   {
     num: "004",
-    title: { pt: "Sudoku Java — Console & GUI Swing", en: "Sudoku Java — Console & Swing GUI" },
+    title: { pt: "FraudDetector — Detecção de Fraudes", en: "FraudDetector — Fraud Detection" },
     description: {
-      pt: "Desafio Bradesco Java Cloud Native. Jogo completo de Sudoku com geração de tabuleiros, validação de regras, sistema de dicas com penalidade de tempo e interface híbrida (Console e Swing).",
-      en: "Bradesco Java Cloud Native challenge. Complete Sudoku game with board generation, rule validation, hint system with time penalty, and dual interface (Console and Swing)."
+      pt: "Detecção de fraudes em transações com Kafka Streams e quatro regras de análise em tempo real. Alertas persistidos de forma idempotente no PostgreSQL, API REST para consulta e classificação, métricas com Prometheus e Grafana.",
+      en: "Transaction fraud detection using Kafka Streams and four real-time analysis rules. Alerts persisted idempotently in PostgreSQL, a REST API for querying and classification, and metrics with Prometheus and Grafana."
     },
-    tags: ["Java", "POO", "Java Swing", "Estruturas de Dados"],
+    tags: ["Java 21", "Spring Boot 4", "Kafka Streams", "PostgreSQL", "Prometheus", "Grafana", "Testcontainers"],
     status: null,
-    link: "https://github.com/Thg1zZ/Game-Sudoku-Bradesco-Java-Cloud-",
+    link: "https://github.com/Thg1zZ/FraudDetector",
   },
   {
     num: "005",
@@ -327,7 +327,7 @@ export const projects = [
       en: "Web platform integrated with Sanity.io (Headless CMS) for dynamic news, events, and document management. Built with semantic HTML5, modular CSS3 (Custom Properties), and modular JavaScript (ES2022+), featuring strict XSS security, Content Security Policy (CSP), robust Fetch API error handling, and Clean Code standards."
     },
     tags: ["HTML5", "CSS3", "JavaScript (ES2022+)", "Sanity.io", "Headless CMS", "CSP / XSS Security", "Fetch API"],
-    status: { pt: "🛠️ Em desenvolvimento ativo", en: "🛠️ In active development" },
-    link: "https://github.com/Thg1zZ/executiva-nacional-dos-estudantes-de-nutricaoenen",
+    status: null,
+    link: "https://site-tradicional-enen.vercel.app/frontend/index.html",
   },
 ];
