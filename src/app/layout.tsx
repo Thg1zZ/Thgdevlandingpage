@@ -36,23 +36,23 @@ const cormorantGaramond = Cormorant_Garamond({
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://thg1zz.github.io"),
-  title: "Thiago Gomes | Desenvolvedor Full-Stack",
+  title: "Thiago Gomes | THGDevLandingPage",
   description:
-    "Portfólio de Thiago Gomes, Desenvolvedor Full-Stack e estudante de Ciência da Computação: Next.js, React, TypeScript, Node.js, PostgreSQL, Java e integrações com IA.",
+    "Portfólio de Thiago Gomes (thgdevlandingpage), Desenvolvedor Full-Stack e estudante de Ciência da Computação: Next.js, React, TypeScript, Node.js, PostgreSQL, Java e integrações com IA.",
   authors: [{ name: "Thiago Gomes" }],
-  keywords: ["Desenvolvedor Full-Stack", "Full-Stack Developer", "Next.js", "React", "TypeScript", "Node.js", "PostgreSQL", "Java", "Spring Boot", "IA"],
+  keywords: ["Thiago Gomes", "thgdevlandingpage", "portfolio", "Desenvolvedor Full-Stack", "Full-Stack Developer", "Next.js", "React", "TypeScript", "Node.js", "PostgreSQL", "Java", "Spring Boot", "IA"],
   openGraph: {
     type: "website",
     url: "https://thg1zz.github.io/landingpage/",
-    title: "Thiago Gomes | Desenvolvedor Full-Stack",
+    title: "Thiago Gomes | THGDevLandingPage",
     description:
-      "Desenvolvedor Full-Stack com experiência em sites, e-commerce, automações e integrações com APIs e IA usando Next.js, React, TypeScript e Node.js.",
+      "Portfólio de Thiago Gomes (thgdevlandingpage). Desenvolvedor Full-Stack com experiência em sites, e-commerce, automações e integrações com APIs e IA usando Next.js, React, TypeScript e Node.js.",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Thiago Gomes | Desenvolvedor Full-Stack",
+    title: "Thiago Gomes | THGDevLandingPage",
     description:
-      "Desenvolvedor Full-Stack com experiência em sites, e-commerce, automações e integrações com APIs e IA usando Next.js, React, TypeScript e Node.js.",
+      "Portfólio de Thiago Gomes (thgdevlandingpage). Desenvolvedor Full-Stack com experiência em sites, e-commerce, automações e integrações com APIs e IA usando Next.js, React, TypeScript e Node.js.",
   },
 };
 

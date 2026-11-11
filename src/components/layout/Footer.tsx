@@ -15,6 +15,7 @@ export function Footer() {
         <div className="font-[family-name:var(--font-jetbrains)] text-xs text-[#7A6E69]">
           © 2025{" "}
           <span className="text-[#B5A9A3] font-medium">{personalInfo.name}</span>
+          {" · thgdevlandingpage"}
           {" · "}
           <span>Next.js · TypeScript · Tailwind CSS</span>
         </div>
